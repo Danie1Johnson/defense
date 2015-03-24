@@ -13,7 +13,8 @@
 \title{Combinatorial and Geometric Structure in the Self-Assembly of Polyhedra}
 \author{Daniel Johnson}
 %\date{\today}
-\date{April 15, 2015}
+%\date{April 15, 2015}
+\date{March 26, 2015}
 \pgfdeclareimage[height=1cm]{brown-logo}{brown-logo.pdf}
 \logo{\pgfuseimage{brown-logo}\hspace*{0.3cm}}
 
@@ -35,14 +36,54 @@
 \begin{frame}{Outline}
   \tableofcontents
 \end{frame}
-
+% -----------------------------------------------------------------------------
 % -----------------------------------------------------------------------------
 \section{Introduction}
+\subsection{Polyhedra}
+\begin{frame}{What is a Polyhedron?}
+\end{frame}
+% -----------------------------------------------------------------------------
+\begin{frame}{Classes of Polyhedra}
+\end{frame}
+% -----------------------------------------------------------------------------
 \subsection{Scientific Motivation}
 \begin{frame}{Viral Capsids}
+\begin{columns}
+    \begin{column}{0.48\textwidth}
+
+    \end{column}
+    \begin{column}{0.48\textwidth}
+    \scalebox{0.19}{
+      \begin{figure}
+        \includegraphics{Adenovirus.jpg}
+        %\hspace*{15pt}\hbox{\scriptsize Credit:\thinspace{\small\itshape National Cancer Institute}}
+        %\caption{Credit: National Cancer Institute}
+       \end{figure}
+     }
+    \end{column}
+\end{columns}
 \end{frame}
+% -----------------------------------------------------------------------------
+\begin{frame}{Molecular Cages}
+\begin{columns}
+    \begin{column}{0.48\textwidth}
+
+    \end{column}
+    \begin{column}{0.48\textwidth}
+    \scalebox{0.1}{
+      \begin{figure}
+        \includegraphics{ward_cage.png}
+        %\hspace*{15pt}\hbox{\scriptsize Credit:\thinspace{\small\itshape National Cancer Institute}}
+        %\caption{Credit: National Cancer Institute}
+       \end{figure}
+      }
+    \end{column}
+\end{columns}
+\end{frame}
+% -----------------------------------------------------------------------------
 \begin{frame}{Self-Folding Polyhedra}
 \end{frame}
+% -----------------------------------------------------------------------------
 \begin{frame}{Other Applications}
 \begin{columns}
     \begin{column}{0.48\textwidth}
@@ -58,38 +99,54 @@
     \end{column}
 \end{columns}
 \end{frame}
-
-\subsection{Polyhedra}
-\begin{frame}{What is a Polyhedron?}
-\end{frame}
-\begin{frame}{Classes of Polyhedra}
-\end{frame}
-
-
+% -----------------------------------------------------------------------------
 % -----------------------------------------------------------------------------
 \section{The Building Game: Modeling}
 \subsection{Definitions}
 \begin{frame}{The Building Game}
-\end{frame}
+\begin{columns}
+    \begin{column}{0.48\textwidth}
 
+    \end{column}
+    \begin{column}{0.48\textwidth}
+    \scalebox{0.25}{
+      \begin{figure}
+        \includegraphics{bg.png}
+        %\hspace*{15pt}\hbox{\scriptsize Credit:\thinspace{\small\itshape National Cancer Institute}}
+        %\caption{Credit: National Cancer Institute}
+       \end{figure}
+      }
+    \end{column}
+\end{columns}
+\end{frame}
+% -----------------------------------------------------------------------------
 \begin{frame}{States and Intermediates}
-\end{frame}
+\begin{definition}
+  A Building Game \textbf{state} $x \subset F$ is a non-empty subset of the faces $F$ of a polyhedron such that the the subset is connected along edges. 
+\end{definition} 
+\begin{definition}
+A Building Game \textbf{intermediate} $[x]$ is an equivalence class on states given by the equivalence relation: $x \sim \hat{x}$ if $x$ can be rotated to get $\hat{x}$.
+\end{definition}
 
+\end{frame}
+% -----------------------------------------------------------------------------
 \begin{frame}{Connections and Degeneracies}
 \end{frame}
-
+% -----------------------------------------------------------------------------
 \begin{frame}{Combinatorial Configuration Space}
 \end{frame}
-
+% -----------------------------------------------------------------------------
 \begin{frame}{Pathways}
 \end{frame}
-
+% -----------------------------------------------------------------------------
 \subsection{Stochastic Modeling} 
 \begin{frame}{Markov Processes}
 \end{frame}
+% -----------------------------------------------------------------------------
 
 \begin{frame}{Energetic Model}
 \end{frame}
+% -----------------------------------------------------------------------------
 
 \begin{frame}{Stationary Distribution}
 \begin{theorem}
@@ -100,6 +157,7 @@ $$\pi_j &= \frac{1}{zr_j}e^{-\beta E_j}$$
 $$ r_jS_{kj} = r_{k}S_{jk}$$
 \end{lemma}
 \end{frame}
+% -----------------------------------------------------------------------------
 \begin{frame}{Stationary Distribution II}
 \begin{proof}
 Detailed Balance!
@@ -111,10 +169,11 @@ Detailed Balance!
 \end{align}
 \end{proof}
 \end{frame}
+% -----------------------------------------------------------------------------
 \begin{frame}{Formation Times}
 $$\tau_{j} &\doteq \inf\left\{t \geq 0 : X_t = [F], X_0 = [x^j]\right\}$$
 \end{frame}
-
+% -----------------------------------------------------------------------------
 % -----------------------------------------------------------------------------
 \section{The Building Game: Enumeration}
 \subsection{Configuration Space Enumeration}
@@ -152,9 +211,14 @@ Rhombic Triacontahedron         & 30  	& 2,423,212     & 26,823,095    & 161,598
 \end{figure}
 
 \end{frame}
+% -----------------------------------------------------------------------------
 
 \begin{frame}{Computation}
+\begin{itemize}
+
+\end{itemize}
 \end{frame}
+% -----------------------------------------------------------------------------
 
 \subsection{Shellings}
 \begin{frame}{Shellings and Shellability}
@@ -191,20 +255,24 @@ Rhombic Triacontahedron         & 30	& 15,574,782,555,813,226,074,240 \\
 \end{figure}
 
 \end{frame}
+% -----------------------------------------------------------------------------
 \begin{frame}{Computation}
 \end{frame}
-
+% -----------------------------------------------------------------------------
 % -----------------------------------------------------------------------------
 \section{Conclusions}
 \begin{frame}{Summary}
 \end{frame}
+% -----------------------------------------------------------------------------
 \begin{frame}{Acknowledgements}
 \end{frame}
 
 
 \end{document}
-
-
+% -----------------------------------------------------------------------------
+% -----------------------------------------------------------------------------
+% -----------------------------------------------------------------------------
+% -----------------------------------------------------------------------------
 % -----------------------------------------------------------------------------
 \section{Introduction}
 \subsection{Cracked Pots -- an uncharted field}
