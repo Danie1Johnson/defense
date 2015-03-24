@@ -215,13 +215,26 @@ Rhombic Triacontahedron         & 30  	& 2,423,212     & 26,823,095    & 161,598
 
 \begin{frame}{Computation}
 \begin{itemize}
-
+\item Given all intermediates with $k$ faces, compute the ones with $k+1$ faces.
+\item Brute force approach necessary. 
+\item Most of computation spent comparing two states for equivalence.
+\item Smart hash function can reduce average comparison time by over an order of magnitude.
 \end{itemize}
 \end{frame}
 % -----------------------------------------------------------------------------
 
 \subsection{Shellings}
 \begin{frame}{Shellings and Shellability}
+\begin{definition}
+A \textbf{shelling} is a linear ordering $f_1, f_2, \dots f_N$ of a polyhedra's faces such that 
+$$f_j \cap \left(\bigcup_{i=1}^{j-1}f_i\right)$$ is connected for each $j$.
+\end{definition}
+\begin{theorem}
+$$\#(\text{shellings})&= \sum_{p \in \{\text{shellable paths}\}}|[x^{p_1}]|\prod_j^{|F|-1}S_{p_jp_{(j+1)}}$$
+\end{theorem}
+\end{frame}
+
+\begin{frame}{Shelling Enumeration}
 \begin{figure}[ht]
 \scalebox{0.6}{
 %{\footnotesize
@@ -253,10 +266,15 @@ Rhombic Triacontahedron         & 30	& 15,574,782,555,813,226,074,240 \\
 %\caption{Number of Shellings for the Platonic, Archimedean, and Catalan solids of up to 30 faces.}
 \label{tab:Shellings}
 \end{figure}
-
 \end{frame}
 % -----------------------------------------------------------------------------
-\begin{frame}{Computation}
+\begin{frame}{Shelling Computation}
+Dynamic programming relation! 
+\begin{align}
+a_{i,k} &\doteq \sum_{\substack{\text{shellable subpaths}:\\ p_1, \dots, p_k \\ x^{p_k} \in [x^i]}}|G.x^{p_1}|\prod_{j=1}^{k-1}S_{p_j p_{j+1}} \\  
+&= \sum_{[x^\ell]:[x^\ell]\xrightarrow{shell}[x^i]} S_{\ell i} a_{\ell, k-1}
+\end{align}
+
 \end{frame}
 % -----------------------------------------------------------------------------
 % -----------------------------------------------------------------------------
