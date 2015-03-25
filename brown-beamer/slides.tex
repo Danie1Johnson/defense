@@ -1,5 +1,6 @@
 \documentclass{beamer}
 %\documentclass[handout,t]{beamer}
+\newcommand{\btVFill}{\vskip0pt plus 1filll}
 
 \batchmode
 % \usepackage{pgfpages}
@@ -40,45 +41,211 @@
 % -----------------------------------------------------------------------------
 \section{Introduction}
 \subsection{Polyhedra}
-\begin{frame}{What is a Polyhedron?}
+\begin{frame}{Platonic Solids}
+\begin{itemize}
+  \item Composed of a single type of regular polygon
+  \item 5 Platonic Solids
+\end{itemize}
+\vspace{0.1 in}
+\begin{columns}
+    \begin{column}{0.32\textwidth}
+      \centering
+      %Cube
+
+      \scalebox{0.035}{
+        \begin{figure}
+          \centering
+          \includegraphics{cube.png}
+        \end{figure}
+      }
+
+      Cube
+     \end{column}
+    \begin{column}{0.32\textwidth}
+      \centering
+      %Octahedron
+      
+      \scalebox{0.035}{
+        \begin{figure}
+          \centering
+          \includegraphics{octahedron.png}
+        \end{figure}
+      }
+
+      Octahedron
+     \end{column}
+    \begin{column}{0.32\textwidth}
+      \centering
+      
+      \scalebox{0.035}{
+        \begin{figure}
+          \centering
+          \includegraphics{dodecahedron.png}
+        \end{figure}
+      }
+
+      Dodecahedron
+     \end{column}
+\end{columns}
+\btVFill
+\textit{\scriptsize Image credit: wikipedia users DTR, Stannered}
+%<1->
 \end{frame}
 % -----------------------------------------------------------------------------
-\begin{frame}{Classes of Polyhedra}
+\begin{frame}{Archimedean Solids}
+\begin{itemize}
+  \item Composed of more than one type of regular polygon
+  \item Identical vertices
+  \item 13 Archimedean Solids
+\end{itemize}
+\vspace{0.1 in}
+\begin{columns}
+    \begin{column}{0.32\textwidth}
+      \centering
+      %Octahedron
+      
+      \scalebox{0.06}{
+        \begin{figure}
+          \centering
+          \includegraphics{cuboctahedron.jpg}
+        \end{figure}
+      }
+
+      Cuboctahedron
+     \end{column}
+    \begin{column}{0.32\textwidth}
+      \centering
+      %Cube
+
+      \scalebox{0.06}{
+        \begin{figure}
+          \centering
+          \includegraphics{truncated_octahedron.jpg}
+        \end{figure}
+      }
+
+      Truncated Octahedron
+     \end{column}
+    \begin{column}{0.32\textwidth}
+      \centering
+      
+      \scalebox{0.06}{
+        \begin{figure}
+          \centering
+          \includegraphics{truncated_icosahedron.jpg}
+        \end{figure}
+      }
+
+      Truncated Icosahedron
+     \end{column}
+\end{columns}
+\btVFill
+\textit{\scriptsize Image credit: wikipedia user Cyp}
+\end{frame}
+% -----------------------------------------------------------------------------
+\begin{frame}{Catalan Solids}
+\begin{itemize}
+  \item Composed of a single type of non-regular polygon
+  \item Dual to Archimedean solids
+  \item 13 Catalan Solids
+\end{itemize}
+\vspace{0.1 in}
+\begin{columns}
+    \begin{column}{0.32\textwidth}
+      \centering
+      %Cube
+
+      \scalebox{0.06}{
+        \begin{figure}
+          \centering
+          \includegraphics{rhombicdodecahedron.jpg}
+        \end{figure}
+      }
+
+      Rhombic Dodecahedron
+     \end{column}
+    \begin{column}{0.32\textwidth}
+      \centering
+      %Octahedron
+      
+      \scalebox{0.06}{
+        \begin{figure}
+          \centering
+          \includegraphics{deltoidal_icositetrahedron.jpg}
+        \end{figure}
+      }
+
+      Deltoidal Icositetrahedron
+     \end{column}
+    \begin{column}{0.32\textwidth}
+      \centering
+      
+      \scalebox{0.06}{
+        \begin{figure}
+          \centering
+          \includegraphics{pentagonal_hexecontahedron.jpg}
+        \end{figure}
+      }
+
+      Pentagonal Hexecontahedron
+     \end{column}
+\end{columns}
+\btVFill
+\textit{\scriptsize Image credit: wikipedia users Cyberpunk and Maxim Razin}
 \end{frame}
 % -----------------------------------------------------------------------------
 \subsection{Scientific Motivation}
 \begin{frame}{Viral Capsids}
-\begin{columns}
-    \begin{column}{0.48\textwidth}
-
-    \end{column}
-    \begin{column}{0.48\textwidth}
-    \scalebox{0.19}{
+%\begin{columns}
+%    \begin{column}{0.48\textwidth}
+%
+%    \end{column}
+%    \begin{column}{0.48\textwidth}
+%    \scalebox{0.19}{
+%      \begin{figure}
+%        \includegraphics{Adenovirus.jpg}
+%        %\hspace*{15pt}\hbox{\scriptsize Credit:\thinspace{\small\itshape National Cancer Institute}}
+%        %\caption{Credit: National Cancer Institute}
+%       \end{figure}
+%     }
+%    \end{column}
+%\end{columns}
+  \centering
+    \scalebox{0.25}{
       \begin{figure}
+        \centering
         \includegraphics{Adenovirus.jpg}
-        %\hspace*{15pt}\hbox{\scriptsize Credit:\thinspace{\small\itshape National Cancer Institute}}
-        %\caption{Credit: National Cancer Institute}
        \end{figure}
      }
-    \end{column}
-\end{columns}
+       %\caption{Credit: National Cancer Institute}
+\btVFill
+\textit{\scriptsize Image credit: National Cancer Institute} 
 \end{frame}
 % -----------------------------------------------------------------------------
 \begin{frame}{Molecular Cages}
-\begin{columns}
-    \begin{column}{0.48\textwidth}
-
-    \end{column}
-    \begin{column}{0.48\textwidth}
-    \scalebox{0.1}{
+%\begin{columns}
+%    \begin{column}{0.48\textwidth}
+%
+%    \end{column}
+%    \begin{column}{0.48\textwidth}
+%    \scalebox{0.1}{
+%      \begin{figure}
+%        \includegraphics{ward_cage.png}
+%        %\hspace*{15pt}\hbox{\scriptsize Credit:\thinspace{\small\itshape National Cancer Institute}}
+%        %\caption{Credit: National Cancer Institute}
+%       \end{figure}
+%      }
+%    \end{column}
+%\end{columns}
+  \centering
+    \scalebox{0.12}{
       \begin{figure}
+        \centering
         \includegraphics{ward_cage.png}
-        %\hspace*{15pt}\hbox{\scriptsize Credit:\thinspace{\small\itshape National Cancer Institute}}
-        %\caption{Credit: National Cancer Institute}
        \end{figure}
       }
-    \end{column}
-\end{columns}
+\btVFill
+\textit{\scriptsize Image credit: Ward Research Group, NYU} 
 \end{frame}
 % -----------------------------------------------------------------------------
 \begin{frame}{Self-Folding Polyhedra}
@@ -104,20 +271,32 @@
 \section{The Building Game: Modeling}
 \subsection{Definitions}
 \begin{frame}{The Building Game}
-\begin{columns}
-    \begin{column}{0.48\textwidth}
-
-    \end{column}
-    \begin{column}{0.48\textwidth}
-    \scalebox{0.25}{
+%\begin{columns}
+%    \begin{column}{0.48\textwidth}
+%
+%    \end{column}
+%    \begin{column}{0.48\textwidth}
+%    \scalebox{0.25}{
+%      \begin{figure}
+%        \includegraphics{bg.png}
+%       \end{figure}
+%      }
+%    \end{column}
+%\end{columns}
+    \scalebox{0.5}{
       \begin{figure}
+        \centering
         \includegraphics{bg.png}
-        %\hspace*{15pt}\hbox{\scriptsize Credit:\thinspace{\small\itshape National Cancer Institute}}
-        %\caption{Credit: National Cancer Institute}
        \end{figure}
       }
-    \end{column}
-\end{columns}
+\begin{itemize}
+  \item Begin with a single face.
+  \item At each step, add a face adjacent to an already added face.
+  \item End when all faces have been added.
+\end{itemize}
+\btVFill
+\textit{\scriptsize Image credit: Govind Menon, Brown} 
+
 \end{frame}
 % -----------------------------------------------------------------------------
 \begin{frame}{States and Intermediates}
@@ -133,20 +312,49 @@ A Building Game \textbf{intermediate} $[x]$ is an equivalence class on states gi
 \begin{frame}{Connections and Degeneracies}
 \end{frame}
 % -----------------------------------------------------------------------------
-\begin{frame}{Combinatorial Configuration Space}
+\begin{frame}{Configuration Space: Cube}
+    \scalebox{0.4}{
+      \begin{figure}
+        \centering
+        \includegraphics{cube_bg.png}
+       \end{figure}
+      }
+\end{frame}
+% -----------------------------------------------------------------------------
+\begin{frame}{Configuration Space: Dodecahedron}
+    \scalebox{0.4}{
+      \begin{figure}
+        \centering
+        \includegraphics{dodecahedronSS.png}
+       \end{figure}
+      }
 \end{frame}
 % -----------------------------------------------------------------------------
 \begin{frame}{Pathways}
 \end{frame}
 % -----------------------------------------------------------------------------
 \subsection{Stochastic Modeling} 
-\begin{frame}{Markov Processes}
-\end{frame}
-% -----------------------------------------------------------------------------
-
 \begin{frame}{Energetic Model}
 \end{frame}
 % -----------------------------------------------------------------------------
+\begin{frame}{Markov Processes}
+\begin{itemize}
+\item $X_t$ a continuous time Markov process on the configurationa space graph.
+\item Transition rates given by matrix $Q$
+\end{itemize}
+\begin{align}
+  \label{eq:Qdef}
+  Q_{jk} &=
+  \begin{cases}
+   S_{jk}e^{-\beta\left(E_{jk} - E_{j}\right)} & \text{if } [x^j] \leftrightarrow [x^k]  \\
+   -z_j       & \text{if } j = k \\
+   0 & \text{else}
+  \end{cases} \\
+z_j &= \sum_{\ell: \ell \neq j} S_{j\ell}e^{-\beta\left(E_{j\ell} - E_j\right)}
+\end{align}
+\end{frame}
+% -----------------------------------------------------------------------------
+
 
 \begin{frame}{Stationary Distribution}
 \begin{theorem}
