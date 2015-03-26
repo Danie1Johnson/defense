@@ -40,7 +40,7 @@
 % -----------------------------------------------------------------------------
 % -----------------------------------------------------------------------------
 \section{Introduction}
-\subsection{Polyhedra}
+%\subsection{Polyhedra}
 \begin{frame}{Platonic Solids}
 \begin{itemize}
   \item Composed of a single type of regular polygon
@@ -88,7 +88,7 @@
      \end{column}
 \end{columns}
 \btVFill
-\textit{\scriptsize Image credit: wikipedia users DTR, Stannered}
+\textit{\scriptsize Image credit: Wikipedia users DTR, Stannered}
 %<1->
 \end{frame}
 % -----------------------------------------------------------------------------
@@ -140,7 +140,7 @@
      \end{column}
 \end{columns}
 \btVFill
-\textit{\scriptsize Image credit: wikipedia user Cyp}
+\textit{\scriptsize Image credit: Wikipedia user Cyp}
 \end{frame}
 % -----------------------------------------------------------------------------
 \begin{frame}{Catalan Solids}
@@ -191,10 +191,10 @@
      \end{column}
 \end{columns}
 \btVFill
-\textit{\scriptsize Image credit: wikipedia users Cyberpunk and Maxim Razin}
+\textit{\scriptsize Image credit: Wikipedia users Cyberpunk and Maxim Razin}
 \end{frame}
 % -----------------------------------------------------------------------------
-\subsection{Scientific Motivation}
+%\subsection{Scientific Motivation}
 \begin{frame}{Viral Capsids}
 %\begin{columns}
 %    \begin{column}{0.48\textwidth}
@@ -249,6 +249,15 @@
 \end{frame}
 % -----------------------------------------------------------------------------
 \begin{frame}{Self-Folding Polyhedra}
+  \centering
+    \scalebox{0.12}{
+      \begin{figure}
+        \centering
+        \includegraphics{gracias.png}
+       \end{figure}
+      }
+\btVFill
+\textit{\scriptsize Image credit: Gracias Group, Johns Hopkins} 
 \end{frame}
 % -----------------------------------------------------------------------------
 \begin{frame}{Other Applications}
@@ -268,8 +277,8 @@
 \end{frame}
 % -----------------------------------------------------------------------------
 % -----------------------------------------------------------------------------
-\section{The Building Game: Modeling}
-\subsection{Definitions}
+\section{The Building Game}
+%\subsection{Definitions}
 \begin{frame}{The Building Game}
 %\begin{columns}
 %    \begin{column}{0.48\textwidth}
@@ -309,7 +318,29 @@ A Building Game \textbf{intermediate} $[x]$ is an equivalence class on states gi
 
 \end{frame}
 % -----------------------------------------------------------------------------
-\begin{frame}{Connections and Degeneracies}
+\begin{frame}{Connections and Pathways}
+\begin{definition}
+A \textbf{connection} exists between two intermediates if one can be formed by adding a face to the other.
+\end{definition}
+\begin{definition}
+A building game \textbf{pathway} is an increasing sequence of intermediates that begins with a single face, proceeds with consecutive intermediates being connected, and finishes with the completed polyhedron.
+\end{definition}
+
+\end{frame}
+% -----------------------------------------------------------------------------
+\begin{frame}{Degeneracies}
+\begin{definition}
+The \textbf{degeneracy number} $S_{jk}$ for a connection is the number of different faces that can be added to (or removed from) one intermediate $[x^j]$ to form the other $[x^k]$.    
+\end{definition}
+The degeneracy number is not symmetric in general: $S_{jk} \neq S_{kj}$.
+
+\centering
+    \scalebox{0.25}{
+      \begin{figure}
+        \centering
+        \includegraphics{degeneracies.pdf}
+       \end{figure}
+      }
 \end{frame}
 % -----------------------------------------------------------------------------
 \begin{frame}{Configuration Space: Cube}
@@ -330,61 +361,6 @@ A Building Game \textbf{intermediate} $[x]$ is an equivalence class on states gi
       }
 \end{frame}
 % -----------------------------------------------------------------------------
-\begin{frame}{Pathways}
-\end{frame}
-% -----------------------------------------------------------------------------
-\subsection{Stochastic Modeling} 
-\begin{frame}{Energetic Model}
-\end{frame}
-% -----------------------------------------------------------------------------
-\begin{frame}{Markov Processes}
-\begin{itemize}
-\item $X_t$ a continuous time Markov process on the configurationa space graph.
-\item Transition rates given by matrix $Q$
-\end{itemize}
-\begin{align}
-  \label{eq:Qdef}
-  Q_{jk} &=
-  \begin{cases}
-   S_{jk}e^{-\beta\left(E_{jk} - E_{j}\right)} & \text{if } [x^j] \leftrightarrow [x^k]  \\
-   -z_j       & \text{if } j = k \\
-   0 & \text{else}
-  \end{cases} \\
-z_j &= \sum_{\ell: \ell \neq j} S_{j\ell}e^{-\beta\left(E_{j\ell} - E_j\right)}
-\end{align}
-\end{frame}
-% -----------------------------------------------------------------------------
-
-
-\begin{frame}{Stationary Distribution}
-\begin{theorem}
-The Markov process $X_t$ with rate matrix $Q$ has stationary distribution $\pi$.
-$$\pi_j &= \frac{1}{zr_j}e^{-\beta E_j}$$
-\end{theorem}
-\begin{lemma}
-$$ r_jS_{kj} = r_{k}S_{jk}$$
-\end{lemma}
-\end{frame}
-% -----------------------------------------------------------------------------
-\begin{frame}{Stationary Distribution II}
-\begin{proof}
-Detailed Balance!
-\begin{align}
-\pi_jQ_{jk} &= \left(\frac{1}{zr_j}e^{-\beta E_j}\right)\left(S_{jk}e^{-\beta\left(E_{jk} - E_j\right)}\right) \\
-&= \left(\frac{1}{z}e^{-\beta E_{jk}}\right)\left(\frac{S_{jk}}{r_j}\right) \\
-&= \left(\frac{1}{z}e^{-\beta E_{kj}}\right)\left(\frac{S_{kj}}{r_k}\right) \\
-&= \pi_kQ_{kj}
-\end{align}
-\end{proof}
-\end{frame}
-% -----------------------------------------------------------------------------
-\begin{frame}{Formation Times}
-$$\tau_{j} &\doteq \inf\left\{t \geq 0 : X_t = [F], X_0 = [x^j]\right\}$$
-\end{frame}
-% -----------------------------------------------------------------------------
-% -----------------------------------------------------------------------------
-\section{The Building Game: Enumeration}
-\subsection{Configuration Space Enumeration}
 \begin{frame}{Configuration Space Statistics}
 \begin{figure}[ht]
 \scalebox{0.5}{
@@ -392,7 +368,7 @@ $$\tau_{j} &\doteq \inf\left\{t \geq 0 : X_t = [F], X_0 = [x^j]\right\}$$
 \centering
 %\textbf{Building Game Enumerative Results for the Platonic Solids}
 \begin{tabular}{ l | c | r | r | r}
-Polyhedra Name & $|F|$ & Intermediates & Connections & Pathways \\
+Polyhedron Name & $|F|$ & Intermediates & Connections & Pathways \\
   \hline    
 Tetrahedron                     & 4        & 4     	& 3             & 1\\
 Cube                            & 6        & 8     	& 9    		& 3\\
@@ -424,14 +400,83 @@ Rhombic Triacontahedron         & 30  	& 2,423,212     & 26,823,095    & 161,598
 \begin{frame}{Computation}
 \begin{itemize}
 \item Given all intermediates with $k$ faces, compute the ones with $k+1$ faces.
-\item Brute force approach necessary. 
-\item Most of computation spent comparing two states for equivalence.
-\item Smart hash function can reduce average comparison time by over an order of magnitude.
+\item Brute force approach necessary.  
+\item Comparing two states for equivalence uses hash function. 
+\item Limited by combinatorial explosion of configuration space size.
 \end{itemize}
+\end{frame}
+
+% -----------------------------------------------------------------------------
+% -----------------------------------------------------------------------------
+\section{Stochastic Modeling}
+% -----------------------------------------------------------------------------
+%\subsection{Stochastic Modeling} 
+\begin{frame}{Energetic Model}
+  \centering
+    \scalebox{0.4}{
+      \begin{figure}
+        \centering
+        \includegraphics{energy_landscape.pdf}
+       \end{figure}
+      }
+$$\log\left(P([x^j] \to [x^k]) \right) \propto -\beta(E_{jk} - E_j)$$
+Typically, we choose $E_j = -\#\left(\text{closed edges}\right)$ to symbolize satisfied bonds. 
+\end{frame}
+% -----------------------------------------------------------------------------
+\begin{frame}{Markov Processes}
+\begin{itemize}
+\item $X_t$ a continuous time Markov process on the configuration space graph.
+\item Transition rates given by matrix $Q$
+\end{itemize}
+\begin{align}
+  \label{eq:Qdef}
+  Q_{jk} &=
+  \begin{cases}
+   S_{jk}e^{-\beta\left(E_{jk} - E_{j}\right)} & \text{if } [x^j] \leftrightarrow [x^k]  \\
+   -z_j       & \text{if } j = k \\
+   0 & \text{else}
+  \end{cases} \\
+z_j &= \sum_{\ell: \ell \neq j} S_{j\ell}e^{-\beta\left(E_{j\ell} - E_j\right)}
+\end{align}
 \end{frame}
 % -----------------------------------------------------------------------------
 
-\subsection{Shellings}
+
+\begin{frame}{Stationary Distribution}
+\begin{theorem}
+The Markov process $X_t$ with rate matrix $Q$ has stationary distribution $\pi$.
+$$\pi_j &= \frac{1}{zr_j}e^{-\beta E_j}$$
+\end{theorem}
+\begin{lemma}
+There is the following relation between degeneracy numbers and symmetry numbers.
+$$ r_jS_{kj} = r_{k}S_{jk}$$
+\end{lemma}
+\end{frame}
+% -----------------------------------------------------------------------------
+\begin{frame}{Stationary Distribution II}
+\begin{proof}
+Detailed Balance!
+\begin{align}
+\pi_jQ_{jk} &= \left(\frac{1}{zr_j}e^{-\beta E_j}\right)\left(S_{jk}e^{-\beta\left(E_{jk} - E_j\right)}\right) \\
+&= \left(\frac{1}{z}e^{-\beta E_{jk}}\right)\left(\frac{S_{jk}}{r_j}\right) \\
+&= \left(\frac{1}{z}e^{-\beta E_{kj}}\right)\left(\frac{S_{kj}}{r_k}\right) \\
+&= \pi_kQ_{kj}
+\end{align}
+\end{proof}
+\end{frame}
+% -----------------------------------------------------------------------------
+\begin{frame}{Formation Times}
+Under our Markov process model, how long does it take to form the polyhedron on average?
+
+$$\tau_{j} &\doteq \inf\left\{t \geq 0 : X_t = [F], X_0 = [x^j]\right\}$$
+
+$$E\left[\tau^{[F]}\right] &= \left[\left(\diag\left(\mathbbm{1}_{[F]}\right) - \diag\left(\mathbbm{1}_{[F]^c}\right)Q\right)\right]^{-1} \mathbbm{1}_{[F]^c}$$
+\end{frame}
+% -----------------------------------------------------------------------------
+% -----------------------------------------------------------------------------
+\section{Shellability}
+
+%\subsection{Shellings}
 \begin{frame}{Shellings and Shellability}
 \begin{definition}
 A \textbf{shelling} is a linear ordering $f_1, f_2, \dots f_N$ of a polyhedra's faces such that 
@@ -441,7 +486,7 @@ $$f_j \cap \left(\bigcup_{i=1}^{j-1}f_i\right)$$ is connected for each $j$.
 $$\#(\text{shellings})&= \sum_{p \in \{\text{shellable paths}\}}|[x^{p_1}]|\prod_j^{|F|-1}S_{p_jp_{(j+1)}}$$
 \end{theorem}
 \end{frame}
-
+%\subsection{Configuration Space Enumeration}
 \begin{frame}{Shelling Enumeration}
 \begin{figure}[ht]
 \scalebox{0.6}{
@@ -488,9 +533,19 @@ a_{i,k} &\doteq \sum_{\substack{\text{shellable subpaths}:\\ p_1, \dots, p_k \\ 
 % -----------------------------------------------------------------------------
 \section{Conclusions}
 \begin{frame}{Summary}
+\begin{itemize}
+  \item Examined discrete geometric model for polyhedral construction
+  \item Novel enumerative results
+  \item Used Markov processes to compute formation statistics
+\end{itemize}
 \end{frame}
 % -----------------------------------------------------------------------------
-\begin{frame}{Acknowledgements}
+\begin{frame}{Acknowledgments}
+\begin{itemize}
+\item Thank you for inviting me to talk! 
+\item Advisor: Govind Menon
+\item Grants: NSF EFRI 10-22730, NSF EFRI 10-22638, NSF CMMI 1200241
+\end{itemize}
 \end{frame}
 
 
