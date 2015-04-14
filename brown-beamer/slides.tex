@@ -14,8 +14,8 @@
 \title{Combinatorial and Geometric Structure in the Self-Assembly of Polyhedra}
 \author{Daniel Johnson}
 %\date{\today}
-%\date{April 15, 2015}
-\date{March 26, 2015}
+\date{April 15, 2015}
+%\date{March 26, 2015}
 \pgfdeclareimage[height=1cm]{brown-logo}{brown-logo.pdf}
 \logo{\pgfuseimage{brown-logo}\hspace*{0.3cm}}
 
@@ -278,6 +278,11 @@
 % -----------------------------------------------------------------------------
 % -----------------------------------------------------------------------------
 \section{The Building Game}
+% -----------------------------------------------------------------------------
+\begin{frame}{Sequential Attachment}
+MOVIE??
+\end{frame}
+% -----------------------------------------------------------------------------
 %\subsection{Definitions}
 \begin{frame}{The Building Game}
 %\begin{columns}
@@ -412,6 +417,7 @@ Rhombic Triacontahedron         & 30  	& 2,423,212     & 26,823,095    & 161,598
 % -----------------------------------------------------------------------------
 %\subsection{Stochastic Modeling} 
 \begin{frame}{Energetic Model}
+CHANGE
   \centering
     \scalebox{0.4}{
       \begin{figure}
@@ -475,11 +481,246 @@ $$E\left[\tau^{[F]}\right] &= \left[\left(\diag\left(\mathbbm{1}_{[F]}\right) - 
     \scalebox{0.4}{
       \begin{figure}
         \centering
-        \includegraphics{formation_time.pdf}
+        NEWFIG
+        %\includegraphics{formation_time.pdf}
        \end{figure}
       }
+\end{frame}
+
+% -----------------------------------------------------------------------------
+% -----------------------------------------------------------------------------
+\section{Geometric Configuration Space}
+% -----------------------------------------------------------------------------
+\begin{frame}{Polygonal Linkage}
+MOVIE
+\end{frame}
+% -----------------------------------------------------------------------------
+\begin{frame}{Constraint Model}
+\begin{itemize}
+\item Use constraint equations to enforce rigidity of polygonal faces and hinged motion along connected edges.
+\item $z = [v_1^T, v_2^T, \dots, v_{n/3}^T]^T \in \mathbbm{R}^n$
+\item Constraint function $c: \mathbbm{R}^n \to \mathbbm{R}^m$
+\item Length constraint $c_j(z) = |v_{j_a} - v_{j_b}|^2 - 1$
+%\item Solution set $\mathcal{M} \doteq \{z \in \mathbbm{R}^n: c(z) = 0\}$ an algebraic variety
+\end{itemize}
+\begin{definition}
+The \textbf{geometric configuration space} is the algebraic variety $\mathcal{M} \doteq \{z \in \mathbbm{R}^n: c(z) = 0\}$. 
+\end{definition}
 
 \end{frame}
+%% -----------------------------------------------------------------------------
+%\begin{frame}{Geometric Configuration Space}
+%Definition
+%\end{frame}
+% -----------------------------------------------------------------------------
+\begin{frame}{Degrees of Freedom}
+\begin{definition}
+The number of \textbf{degrees of freedom} a Building Game intermediate at configuration $z$ is the dimension of the geometric configuration space $\mathcal{M}$ at $z$. 
+\end{definition}
+\begin{itemize}
+\item Six \textit{trivial degrees of freedom}: rigid body translations and rotations. 
+\item Remaining are \textit{internal degrees of freedom}
+\end{itemize}
+\end{frame}
+%% -----------------------------------------------------------------------------
+\begin{frame}{Degrees of Freedom: Dodecahedron}
+  \centering
+\scalebox{0.6}{
+        \includegraphics{dodecahedron_dof_hist.pdf}
+}
+\end{frame}
+%% -----------------------------------------------------------------------------
+\begin{frame}{Degrees of Freedom: Dodecahedron II}
+ % \centering
+\scalebox{0.5}{
+ % \centering
+        \includegraphics[trim=50 0 0 0, clip]{dodecahedron_dof_hist_facecount.pdf}
+}
+\end{frame}
+%% -----------------------------------------------------------------------------
+\begin{frame}{Degrees of Freedom: Icosahedron}
+  \centering
+\scalebox{0.6}{
+        \includegraphics{icosahedron_dof_hist.pdf}
+}
+\end{frame}
+%% -----------------------------------------------------------------------------
+\begin{frame}{Degrees of Freedom: Icosahedron II}
+  \centering
+\scalebox{0.55}{
+  %\begin{left}
+        \includegraphics[trim=150 0 100 0, clip]{icosahedron_dof_hist_facecount.pdf}
+  %     \end{left}
+}
+\end{frame}
+%%% -----------------------------------------------------------------------------
+%\begin{frame}{Degrees of Freedom by Number of Faces}
+%add second hist
+%  \centering
+%    \scalebox{0.4}{
+%      \begin{figure}
+%        \centering
+%        \includegraphics{icosahedron_dof_hist_facecount.pdf}
+%       \end{figure}
+%      }
+%\end{frame}
+%
+% -----------------------------------------------------------------------------
+% -----------------------------------------------------------------------------
+\section{Reflected Brownian Motion}
+% -----------------------------------------------------------------------------
+\begin{frame}{Brownian Motion on Geometric Configuration Space}
+\begin{itemize}
+\item Brownian motion explores GCS 
+\item Provides probabilistic framework for comparing different regions of the Geometric Configuration Space
+\item Two stage random walk scheme
+\begin{itemize}
+ \item Take random step in tangent space $\mathcal{T}_z\mathcal{M}$
+  \item Project new point back to $\mathcal{M}$
+\end{itemize}
+\end{itemize}
+\end{frame}
+% -----------------------------------------------------------------------------
+\begin{frame}{Tangent Space}
+\begin{itemize}
+\item Use Jacobian of $c$: $C(z) \in \mathbbm{R}^{m\times n}$
+\item $\mathcal{T}_z\mathcal{M} \doteq \left\{w \in \mathbbm{R}^n : C\left(z\right)w = 0\right\}$ 
+\item Computation:
+\begin{itemize}
+\item Draw $B \sim \text{uniform}([0,1))$ 
+\item $A = [C^T(z) B]  = QR = [Q^1 Q^2]R$
+\item $Q^2$ orthonormal basis for $\mathcal{T}_z\mathcal{M}$ 
+\end{itemize}
+\end{itemize}
+\end{frame}
+% -----------------------------------------------------------------------------
+\begin{frame}{Excluding Trivial Degrees of Freedom}
+Eqs
+\end{frame}
+%% -----------------------------------------------------------------------------
+%\begin{frame}{Projection}
+%Eqs
+%\end{frame}
+% -----------------------------------------------------------------------------
+\begin{frame}{}
+MOVie
+\end{frame}
+% -----------------------------------------------------------------------------
+\begin{frame}{Three Triangle Linkage}
+add small T3 diagram
+  \centering
+    \scalebox{0.4}{
+      \begin{figure}
+        \centering
+        \includegraphics{T3_6_2D.pdf}
+       \end{figure}
+      }
+\end{frame}
+% -----------------------------------------------------------------------------
+\begin{frame}{Example}
+MOVIE
+\end{frame}
+% -----------------------------------------------------------------------------
+\begin{frame}{Self-Intersection Boundaries}
+add test for self intersection 
+use rejection scheme
+\end{frame}
+% -----------------------------------------------------------------------------
+\begin{frame}{Three Triangle Linkage}
+  \centering
+    \scalebox{0.4}{
+      \begin{figure}
+        \centering
+        \includegraphics{T3_7_2D.pdf}
+       \end{figure}
+      }
+\end{frame}
+% -----------------------------------------------------------------------------
+\begin{frame}{Example with Boundaries}
+MOVIE
+\end{frame}
+
+% -----------------------------------------------------------------------------
+% -----------------------------------------------------------------------------
+\section{Results}
+% -----------------------------------------------------------------------------
+\begin{frame}{Finding Rates}
+\end{frame}
+% -----------------------------------------------------------------------------
+\begin{frame}{Finding Barriers}
+\begin{align}
+\hat{Q}_{jk} &= Q^0_{jk} \\
+	&= S_{jk}e^{\beta_0(E_{jk} - E_j)} \\
+E_{jk} &= E_j-\frac{1}{\beta_0}\log\left(\hat{Q}_{jk}/S_{jk}\right)
+\end{align}
+\end{frame}
+% -----------------------------------------------------------------------------
+\begin{frame}{Stationary Distribution}
+  \centering
+    \scalebox{0.4}{
+      \begin{figure}
+        \centering
+        \includegraphics{octahedron_pi.pdf}
+       \end{figure}
+      }
+\end{frame}
+% -----------------------------------------------------------------------------
+\begin{frame}{Finite Time Distribution}
+  \centering
+    \scalebox{0.4}{
+      \begin{figure}
+        \centering
+        \includegraphics{octahedron_finite_dist.pdf}
+       \end{figure}
+      }
+\end{frame}
+% -----------------------------------------------------------------------------
+\begin{frame}{Marvov Process on Octahedron CCS}
+  \centering
+    \scalebox{0.15}{
+      \begin{figure}
+        \centering
+        \includegraphics[trim = 100 0 0 0,clip]{octahedron_pi_Q_grid.pdf}
+       \end{figure}
+      }
+\end{frame}
+% -----------------------------------------------------------------------------
+\begin{frame}{Expected Formation Times}
+  \centering
+    \scalebox{0.4}{
+      \begin{figure}
+        \centering
+        \includegraphics{octahedron_tau.pdf}
+       \end{figure}
+      }
+\end{frame}
+% -----------------------------------------------------------------------------
+
+
+
+
+
+
+% -----------------------------------------------------------------------------
+% -----------------------------------------------------------------------------
+\section{Conclusions}
+\begin{frame}{Summary}
+\begin{itemize}
+  \item Examined discrete geometric model for polyhedral construction
+  \item Novel enumerative results
+  \item Used Markov processes to compute formation statistics
+\end{itemize}
+\end{frame}
+% -----------------------------------------------------------------------------
+\begin{frame}{Acknowledgments}
+\begin{itemize}
+\item Thank you for inviting me to talk! 
+\item Advisor: Govind Menon
+\item Grants: NSF EFRI 10-22730, NSF EFRI 10-22638, NSF CMMI 1200241
+\end{itemize}
+\end{frame}
+
+
 % -----------------------------------------------------------------------------
 % -----------------------------------------------------------------------------
 \section{Shellability}
@@ -535,25 +776,6 @@ Dynamic programming relation!
 a_{i,k} &\doteq \sum_{\substack{\text{shellable subpaths}:\\ p_1, \dots, p_k \\ x^{p_k} \in [x^i]}}|G.x^{p_1}|\prod_{j=1}^{k-1}S_{p_j p_{j+1}} \\  
 &= \sum_{[x^\ell]:[x^\ell]\xrightarrow{shell}[x^i]} S_{\ell i} a_{\ell, k-1}
 \end{align}
-
-\end{frame}
-% -----------------------------------------------------------------------------
-% -----------------------------------------------------------------------------
-\section{Conclusions}
-\begin{frame}{Summary}
-\begin{itemize}
-  \item Examined discrete geometric model for polyhedral construction
-  \item Novel enumerative results
-  \item Used Markov processes to compute formation statistics
-\end{itemize}
-\end{frame}
-% -----------------------------------------------------------------------------
-\begin{frame}{Acknowledgments}
-\begin{itemize}
-\item Thank you for inviting me to talk! 
-\item Advisor: Govind Menon
-\item Grants: NSF EFRI 10-22730, NSF EFRI 10-22638, NSF CMMI 1200241
-\end{itemize}
 \end{frame}
 
 
