@@ -278,10 +278,10 @@
 % -----------------------------------------------------------------------------
 % -----------------------------------------------------------------------------
 \section{The Building Game}
-% -----------------------------------------------------------------------------
-\begin{frame}{Sequential Attachment}
-MOVIE??
-\end{frame}
+%% -----------------------------------------------------------------------------
+%\begin{frame}{Sequential Attachment}
+%MOVIE??
+%\end{frame}
 % -----------------------------------------------------------------------------
 %\subsection{Definitions}
 \begin{frame}{The Building Game}
@@ -297,10 +297,12 @@ MOVIE??
 %      }
 %    \end{column}
 %\end{columns}
-    \scalebox{0.5}{
+  \centering
+    \scalebox{0.04}{
       \begin{figure}
         \centering
-        \includegraphics{bg.png}
+        \includegraphics{octa_path.pdf}
+        %\includegraphics{bg.png}
        \end{figure}
       }
 \begin{itemize}
@@ -308,14 +310,15 @@ MOVIE??
   \item At each step, add a face adjacent to an already added face.
   \item End when all faces have been added.
 \end{itemize}
-\btVFill
-\textit{\scriptsize Image credit: Govind Menon, Brown} 
+
+%\btVFill
+%\textit{\scriptsize Image credit: Govind Menon, Brown} 
 
 \end{frame}
 % -----------------------------------------------------------------------------
 \begin{frame}{States and Intermediates}
 \begin{definition}
-  A Building Game \textbf{state} $x \subset F$ is a non-empty subset of the faces $F$ of a polyhedron such that the the subset is connected along edges. 
+  A Building Game \textbf{state} $x$ is a non-empty subset of the faces $F$ of a polyhedron such that the subset is connected along edges. 
 \end{definition} 
 \begin{definition}
 A Building Game \textbf{intermediate} $[x]$ is an equivalence class on states given by the equivalence relation: $x \sim \hat{x}$ if $x$ can be rotated to get $\hat{x}$.
@@ -340,15 +343,13 @@ The \textbf{degeneracy number} $S_{jk}$ for a connection is the number of differ
 The degeneracy number is not symmetric in general: $S_{jk} \neq S_{kj}$.
 
 \centering
-    \scalebox{0.25}{
-      \begin{figure}
+    \scalebox{0.24}{
         \centering
         \includegraphics{degeneracies.pdf}
-       \end{figure}
       }
 \end{frame}
 % -----------------------------------------------------------------------------
-\begin{frame}{Configuration Space: Cube}
+\begin{frame}{Combinatorial Configuration Space: Cube}
     \scalebox{0.4}{
       \begin{figure}
         \centering
@@ -357,7 +358,7 @@ The degeneracy number is not symmetric in general: $S_{jk} \neq S_{kj}$.
       }
 \end{frame}
 % -----------------------------------------------------------------------------
-\begin{frame}{Configuration Space: Dodecahedron}
+\begin{frame}{Combinatorial Configuration Space: Dodecahedron}
     \scalebox{0.4}{
       \begin{figure}
         \centering
@@ -416,8 +417,7 @@ Rhombic Triacontahedron         & 30  	& 2,423,212     & 26,823,095    & 161,598
 \section{Stochastic Modeling}
 % -----------------------------------------------------------------------------
 %\subsection{Stochastic Modeling} 
-\begin{frame}{Energetic Model}
-CHANGE
+\begin{frame}{Energy Landscape Model}
   \centering
     \scalebox{0.4}{
       \begin{figure}
@@ -425,8 +425,11 @@ CHANGE
         \includegraphics{energy_landscape.pdf}
        \end{figure}
       }
-$$\log\left(P([x^j] \to [x^k]) \right) \propto -\beta(E_{jk} - E_j)$$
-Typically, we choose $E_j = -\#\left(\text{closed edges}\right)$ to symbolize satisfied bonds. 
+%$$\log\left(P([x^j] \to [x^k]) \right) \propto -\beta(E_{jk} - E_j)$$
+\begin{itemize}
+\item $\log\left(Q_{jk} \right) \propto -\beta(E_{jk} - E_j)$
+\item Choose $E_j = -\#\left(\text{closed edges}\right)$ to model satisfied bonds.
+\end{itemize} 
 \end{frame}
 % -----------------------------------------------------------------------------
 \begin{frame}{Markov Processes}
@@ -451,7 +454,7 @@ z_j &= \sum_{\ell: \ell \neq j} S_{j\ell}e^{-\beta\left(E_{j\ell} - E_j\right)}
 \begin{frame}{Stationary Distribution}
 \begin{theorem}
 The Markov process $X_t$ with rate matrix $Q$ has stationary distribution $\pi$.
-$$\pi_j &= \frac{1}{zr_j}e^{-\beta E_j}$$
+$$\pi_j &= \frac{1}{Zr_j}e^{-\beta E_j}$$
 \end{theorem}
 \begin{lemma}
 There is the following relation between degeneracy numbers and symmetry numbers.
@@ -463,9 +466,9 @@ $$ r_jS_{kj} = r_{k}S_{jk}$$
 \begin{proof}
 Detailed Balance!
 \begin{align}
-\pi_jQ_{jk} &= \left(\frac{1}{zr_j}e^{-\beta E_j}\right)\left(S_{jk}e^{-\beta\left(E_{jk} - E_j\right)}\right) \\
-&= \left(\frac{1}{z}e^{-\beta E_{jk}}\right)\left(\frac{S_{jk}}{r_j}\right) \\
-&= \left(\frac{1}{z}e^{-\beta E_{kj}}\right)\left(\frac{S_{kj}}{r_k}\right) \\
+\pi_jQ_{jk} &= \left(\frac{1}{Zr_j}e^{-\beta E_j}\right)\left(S_{jk}e^{-\beta\left(E_{jk} - E_j\right)}\right) \\
+&= \left(\frac{1}{Z}e^{-\beta E_{jk}}\right)\left(\frac{S_{jk}}{r_j}\right) \\
+&= \left(\frac{1}{Z}e^{-\beta E_{kj}}\right)\left(\frac{S_{kj}}{r_k}\right) \\
 &= \pi_kQ_{kj}
 \end{align}
 \end{proof}
@@ -587,25 +590,36 @@ The number of \textbf{degrees of freedom} a Building Game intermediate at config
 \item $\mathcal{T}_z\mathcal{M} \doteq \left\{w \in \mathbbm{R}^n : C\left(z\right)w = 0\right\}$ 
 \item Computation:
 \begin{itemize}
-\item Draw $B \sim \text{uniform}([0,1))$ 
-\item $A = [C^T(z) B]  = QR = [Q^1 Q^2]R$
-\item $Q^2$ orthonormal basis for $\mathcal{T}_z\mathcal{M}$ 
+\item Draw $B \in \mathbbm{R}^{n\times (n-m)}$ uniformly in $(0,1)$ at random.
+\item Set $A = [C^T(z) B] \in \mathbbm{R}^{n\times n}$
+\item Take the QR decomposition $A = [Q^{(1)} Q^{(2)}]R$
+\item $Q^{(2)}$ orthonormal basis for $\mathcal{T}_z\mathcal{M}$ 
 \end{itemize}
 \end{itemize}
 \end{frame}
 % -----------------------------------------------------------------------------
 \begin{frame}{Excluding Trivial Degrees of Freedom}
-Eqs
+\begin{itemize}
+\item Fix translations by imposing aditional constraints on center of mass.
+\item Find bases $W \in \mathbbm{R}^{n\times 3}$ that correspond to rotation directions.
+\item Use $A = [C^T(z) W \tilde{B}]$ where $\tilde{B} \in \mathbbm{R}^{n\times (n-m-3)}
+\item $A = [Q^{(1)} Q^{(2)}_W Q^{(2)}_{\tilde{B}}]R$ gives basis 
+\item Perform normal random walk and projection using $Q^{(2)}_{\tilde{B}}$
+\item Rotate back to original frame of reference.
+%\begin{align}
+%  0 &= \sum_{i=1}^{n/3} v^i
+%\end{align}
+\end{itemize}
 \end{frame}
 %% -----------------------------------------------------------------------------
 %\begin{frame}{Projection}
 %Eqs
 %\end{frame}
-% -----------------------------------------------------------------------------
-\begin{frame}{}
-MOVie
-\end{frame}
-% -----------------------------------------------------------------------------
+%% -----------------------------------------------------------------------------
+%\begin{frame}{}
+%MOVie
+%\end{frame}
+%% -----------------------------------------------------------------------------
 \begin{frame}{Three Triangle Linkage}
 add small T3 diagram
   \centering
@@ -616,14 +630,18 @@ add small T3 diagram
        \end{figure}
       }
 \end{frame}
+%% -----------------------------------------------------------------------------
+%\begin{frame}{Example}
+%MOVIE
+%\end{frame}
 % -----------------------------------------------------------------------------
-\begin{frame}{Example}
-MOVIE
-\end{frame}
-% -----------------------------------------------------------------------------
-\begin{frame}{Self-Intersection Boundaries}
-add test for self intersection 
-use rejection scheme
+\begin{frame}{Reflected Brownian Motion}
+\begin{itemize}
+\item Self-intersecting configurations are unphysical
+\item Use reflected Brownian motion
+\item At each iteration test for self-intersection.
+\item Reject update if self-intersection found.
+\end{itemize}
 \end{frame}
 % -----------------------------------------------------------------------------
 \begin{frame}{Three Triangle Linkage}
@@ -635,10 +653,10 @@ use rejection scheme
        \end{figure}
       }
 \end{frame}
-% -----------------------------------------------------------------------------
-\begin{frame}{Example with Boundaries}
-MOVIE
-\end{frame}
+%% -----------------------------------------------------------------------------
+%\begin{frame}{Example with Boundaries}
+%MOVIE
+%\end{frame}
 
 % -----------------------------------------------------------------------------
 % -----------------------------------------------------------------------------
@@ -648,11 +666,16 @@ MOVIE
 \end{frame}
 % -----------------------------------------------------------------------------
 \begin{frame}{Finding Barriers}
+Use empirical rates to find Barrier heights. 
 \begin{align}
 \hat{Q}_{jk} &= Q^0_{jk} \\
 	&= S_{jk}e^{\beta_0(E_{jk} - E_j)} \\
-E_{jk} &= E_j-\frac{1}{\beta_0}\log\left(\hat{Q}_{jk}/S_{jk}\right)
+E_{jk} &= E_j-\frac{1}{\beta_0}\log\left(\hat{Q}_{jk}/S_{jk}\right) \\
+Q_{jk} &= S_{jk}\left(\hat{Q}_{jk}/S_{jk}\right)^{\frac{\beta}{\beta_0}} \\
 \end{align}
+
+%$$Q_{jk} &= S_{jk}\left(\hat{Q}_{jk}/S_{jk}\right)^{\frac{\beta}{\beta_0}}$$
+
 \end{frame}
 % -----------------------------------------------------------------------------
 \begin{frame}{Stationary Distribution}
