@@ -274,6 +274,8 @@
 }
     \end{column}
 \end{columns}
+\btVFill
+\textit{\scriptsize Image credit: J. Sachs}
 \end{frame}
 % -----------------------------------------------------------------------------
 % -----------------------------------------------------------------------------
@@ -427,7 +429,7 @@ Rhombic Triacontahedron         & 30  	& 2,423,212     & 26,823,095    & 161,598
       }
 %$$\log\left(P([x^j] \to [x^k]) \right) \propto -\beta(E_{jk} - E_j)$$
 \begin{itemize}
-\item $\log\left(Q_{jk} \right) \propto -\beta(E_{jk} - E_j)$
+\item Rate of transitions $[x^j] \to [x^k]$ proportional to $e^{-\beta(E_{jk} - E_j)}$
 \item Choose $E_j = -\#\left(\text{closed edges}\right)$ to model satisfied bonds.
 \end{itemize} 
 \end{frame}
@@ -474,6 +476,16 @@ Detailed Balance!
 \end{proof}
 \end{frame}
 % -----------------------------------------------------------------------------
+\begin{frame}{Stationary Distribution}
+  \centering
+    \scalebox{0.4}{
+      \begin{figure}
+        \centering
+        \includegraphics{octahedron_pi.pdf}
+       \end{figure}
+      }
+\end{frame}
+% -----------------------------------------------------------------------------
 \begin{frame}{Formation Times}
 Under our Markov process model, how long does it take to form the polyhedron on average?
 
@@ -493,13 +505,14 @@ $$E\left[\tau^{[F]}\right] &= \left[\left(\diag\left(\mathbbm{1}_{[F]}\right) - 
 % -----------------------------------------------------------------------------
 % -----------------------------------------------------------------------------
 \section{Geometric Configuration Space}
-% -----------------------------------------------------------------------------
-\begin{frame}{Polygonal Linkage}
-MOVIE
-\end{frame}
+%% -----------------------------------------------------------------------------
+%\begin{frame}{Polygonal Linkage}
+%MOVIE
+%\end{frame}
 % -----------------------------------------------------------------------------
 \begin{frame}{Constraint Model}
 \begin{itemize}
+\item Extend BG intermediates to be a linkage of polygons.
 \item Use constraint equations to enforce rigidity of polygonal faces and hinged motion along connected edges.
 \item $z = [v_1^T, v_2^T, \dots, v_{n/3}^T]^T \in \mathbbm{R}^n$
 \item Constraint function $c: \mathbbm{R}^n \to \mathbbm{R}^m$
@@ -523,6 +536,7 @@ The number of \textbf{degrees of freedom} a Building Game intermediate at config
 \begin{itemize}
 \item Six \textit{trivial degrees of freedom}: rigid body translations and rotations. 
 \item Remaining are \textit{internal degrees of freedom}
+\item Rigid if no internal degrees of freedom
 \end{itemize}
 \end{frame}
 %% -----------------------------------------------------------------------------
@@ -532,14 +546,14 @@ The number of \textbf{degrees of freedom} a Building Game intermediate at config
         \includegraphics{dodecahedron_dof_hist.pdf}
 }
 \end{frame}
-%% -----------------------------------------------------------------------------
-\begin{frame}{Degrees of Freedom: Dodecahedron II}
- % \centering
-\scalebox{0.5}{
- % \centering
-        \includegraphics[trim=50 0 0 0, clip]{dodecahedron_dof_hist_facecount.pdf}
-}
-\end{frame}
+%%% -----------------------------------------------------------------------------
+%\begin{frame}{Degrees of Freedom: Dodecahedron II}
+% % \centering
+%\scalebox{0.5}{
+% % \centering
+%        \includegraphics[trim=50 0 0 0, clip]{dodecahedron_dof_hist_facecount.pdf}
+%}
+%\end{frame}
 %% -----------------------------------------------------------------------------
 \begin{frame}{Degrees of Freedom: Icosahedron}
   \centering
@@ -547,14 +561,14 @@ The number of \textbf{degrees of freedom} a Building Game intermediate at config
         \includegraphics{icosahedron_dof_hist.pdf}
 }
 \end{frame}
-%% -----------------------------------------------------------------------------
-\begin{frame}{Degrees of Freedom: Icosahedron II}
-  \centering
-\scalebox{0.55}{
-  %\begin{left}
-        \includegraphics[trim=150 0 100 0, clip]{icosahedron_dof_hist_facecount.pdf}
-  %     \end{left}
-}
+%%% -----------------------------------------------------------------------------
+%\begin{frame}{Degrees of Freedom: Icosahedron II}
+%  \centering
+%\scalebox{0.55}{
+%  %\begin{left}
+%        \includegraphics[trim=150 0 100 0, clip]{icosahedron_dof_hist_facecount.pdf}
+%  %     \end{left}
+%}
 \end{frame}
 %%% -----------------------------------------------------------------------------
 %\begin{frame}{Degrees of Freedom by Number of Faces}
@@ -602,7 +616,7 @@ The number of \textbf{degrees of freedom} a Building Game intermediate at config
 \begin{itemize}
 \item Fix translations by imposing aditional constraints on center of mass.
 \item Find bases $W \in \mathbbm{R}^{n\times 3}$ that correspond to rotation directions.
-\item Use $A = [C^T(z) W \tilde{B}]$ where $\tilde{B} \in \mathbbm{R}^{n\times (n-m-3)}
+\item Use $\tilde{A} = [C^T(z) W \tilde{B}]$ where $\tilde{B} \in \mathbbm{R}^{n\times (n-m-3)}
 \item $A = [Q^{(1)} Q^{(2)}_W Q^{(2)}_{\tilde{B}}]R$ gives basis 
 \item Perform normal random walk and projection using $Q^{(2)}_{\tilde{B}}$
 \item Rotate back to original frame of reference.
@@ -621,7 +635,6 @@ The number of \textbf{degrees of freedom} a Building Game intermediate at config
 %\end{frame}
 %% -----------------------------------------------------------------------------
 \begin{frame}{Three Triangle Linkage}
-add small T3 diagram
   \centering
     \scalebox{0.4}{
       \begin{figure}
@@ -663,6 +676,13 @@ add small T3 diagram
 \section{Results}
 % -----------------------------------------------------------------------------
 \begin{frame}{Finding Rates}
+\begin{itemize}
+\item Reflected Brownian motion allows us to compute transition rates. 
+\item If added face attaches at two edges $(v_a, v_b)$ and $(v_b, v_c)$, what is the probability that the configuration a  
+\end{itemize}
+\begin{align}
+\hat{Q}^{\epsilon}_{jk} &= P(|\angle_{abc}(z) - \theta_{abc} | < \epsilon )
+\end{align}
 \end{frame}
 % -----------------------------------------------------------------------------
 \begin{frame}{Finding Barriers}
@@ -676,16 +696,6 @@ Q_{jk} &= S_{jk}\left(\hat{Q}_{jk}/S_{jk}\right)^{\frac{\beta}{\beta_0}} \\
 
 %$$Q_{jk} &= S_{jk}\left(\hat{Q}_{jk}/S_{jk}\right)^{\frac{\beta}{\beta_0}}$$
 
-\end{frame}
-% -----------------------------------------------------------------------------
-\begin{frame}{Stationary Distribution}
-  \centering
-    \scalebox{0.4}{
-      \begin{figure}
-        \centering
-        \includegraphics{octahedron_pi.pdf}
-       \end{figure}
-      }
 \end{frame}
 % -----------------------------------------------------------------------------
 \begin{frame}{Finite Time Distribution}
@@ -729,16 +739,15 @@ Q_{jk} &= S_{jk}\left(\hat{Q}_{jk}/S_{jk}\right)^{\frac{\beta}{\beta_0}} \\
 \section{Conclusions}
 \begin{frame}{Summary}
 \begin{itemize}
-  \item Examined discrete geometric model for polyhedral construction
-  \item Novel enumerative results
-  \item Used Markov processes to compute formation statistics
+  \item Extended Building Game to geometric setting.
+  \item Used reflected Brownian motion to examine rigidity and compute transition rates.
+  \item Computed novel enumerative results.
 \end{itemize}
 \end{frame}
 % -----------------------------------------------------------------------------
 \begin{frame}{Acknowledgments}
 \begin{itemize}
-\item Thank you for inviting me to talk! 
-\item Advisor: Govind Menon
+\item Thank you for listening! 
 \item Grants: NSF EFRI 10-22730, NSF EFRI 10-22638, NSF CMMI 1200241
 \end{itemize}
 \end{frame}
