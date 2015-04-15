@@ -493,11 +493,10 @@ $$\tau_{j} &\doteq \inf\left\{t \geq 0 : X_t = [F], X_0 = [x^j]\right\}$$
 
 $$E\left[\tau^{[F]}\right] &= \left[\left(\diag\left(\mathbbm{1}_{[F]}\right) - \diag\left(\mathbbm{1}_{[F]^c}\right)Q\right)\right]^{-1} \mathbbm{1}_{[F]^c}$$
   \centering
-    \scalebox{0.4}{
+    \scalebox{0.25}{
       \begin{figure}
         \centering
-        NEWFIG
-        %\includegraphics{formation_time.pdf}
+        \includegraphics{octahedron_tau_one.pdf}
        \end{figure}
       }
 \end{frame}
@@ -614,7 +613,7 @@ The number of \textbf{degrees of freedom} a Building Game intermediate at config
 % -----------------------------------------------------------------------------
 \begin{frame}{Excluding Trivial Degrees of Freedom}
 \begin{itemize}
-\item Fix translations by imposing aditional constraints on center of mass.
+\item Fix translations by imposing additional constraints on center of mass.
 \item Find bases $W \in \mathbbm{R}^{n\times 3}$ that correspond to rotation directions.
 \item Use $\tilde{A} = [C^T(z) W \tilde{B}]$ where $\tilde{B} \in \mathbbm{R}^{n\times (n-m-3)}
 \item $A = [Q^{(1)} Q^{(2)}_W Q^{(2)}_{\tilde{B}}]R$ gives basis 
@@ -650,7 +649,7 @@ The number of \textbf{degrees of freedom} a Building Game intermediate at config
 % -----------------------------------------------------------------------------
 \begin{frame}{Reflected Brownian Motion}
 \begin{itemize}
-\item Self-intersecting configurations are unphysical
+\item Self-intersecting configurations are nonphysical
 \item Use reflected Brownian motion
 \item At each iteration test for self-intersection.
 \item Reject update if self-intersection found.
@@ -678,7 +677,7 @@ The number of \textbf{degrees of freedom} a Building Game intermediate at config
 \begin{frame}{Finding Rates}
 \begin{itemize}
 \item Reflected Brownian motion allows us to compute transition rates. 
-\item If added face attaches at two edges $(v_a, v_b)$ and $(v_b, v_c)$, what is the probability that the configuration a  
+\item If added face attaches at two edges $(v_a, v_b)$ and $(v_b, v_c)$, what is the probability that the configuration is withing a tolerance $\epsilon$ of a preferred angle $\theta_{abc}$?
 \end{itemize}
 \begin{align}
 \hat{Q}^{\epsilon}_{jk} &= P(|\angle_{abc}(z) - \theta_{abc} | < \epsilon )
@@ -688,10 +687,10 @@ The number of \textbf{degrees of freedom} a Building Game intermediate at config
 \begin{frame}{Finding Barriers}
 Use empirical rates to find Barrier heights. 
 \begin{align}
-\hat{Q}_{jk} &= Q^0_{jk} \\
-	&= S_{jk}e^{\beta_0(E_{jk} - E_j)} \\
-E_{jk} &= E_j-\frac{1}{\beta_0}\log\left(\hat{Q}_{jk}/S_{jk}\right) \\
-Q_{jk} &= S_{jk}\left(\hat{Q}_{jk}/S_{jk}\right)^{\frac{\beta}{\beta_0}} \\
+\hat{Q}_{jk}^{\epsilon} &= Q^{\epsilon, \beta_0}_{jk} \\
+	&= S_{jk}e^{\beta_0(E_{jk}^{\epsilon} - E_j)} \\
+E_{jk}^{\epsilon} &= E_j-\frac{1}{\beta_0}\log\left(\hat{Q}^{\epsilon, \beta_0}_{jk}/S_{jk}\right) \\
+Q^{\epsilon, \beta}_{jk} &= S_{jk}\left(\hat{Q}^{\epsilon}_{jk}/S_{jk}\right)^{\frac{\beta}{\beta_0}} 
 \end{align}
 
 %$$Q_{jk} &= S_{jk}\left(\hat{Q}_{jk}/S_{jk}\right)^{\frac{\beta}{\beta_0}}$$
@@ -708,7 +707,7 @@ Q_{jk} &= S_{jk}\left(\hat{Q}_{jk}/S_{jk}\right)^{\frac{\beta}{\beta_0}} \\
       }
 \end{frame}
 % -----------------------------------------------------------------------------
-\begin{frame}{Marvov Process on Octahedron CCS}
+\begin{frame}{Markov Process on Octahedron CCS}
   \centering
     \scalebox{0.15}{
       \begin{figure}
